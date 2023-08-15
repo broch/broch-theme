@@ -1,0 +1,38 @@
+{{ define "main" }}
+{{- $blogTitle := site.Params.blogTitle | default "Blog" -}}
+<main>
+<div class="py-16 xl:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
+  <div class="max-w-max lg:max-w-7xl mx-auto">
+    <div class="relative z-10 mb-8 md:mb-2 md:px-6">
+    <h1 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-stone-900 dark:text-stone-300 sm:text-4xl">{{ $blogTitle }}</h1>
+    </div>
+    <div class="relative">
+      <div class="relative md:p-6">
+        <div class="lg:grid lg:grid-cols-2 lg:gap-6">
+          <div class="prose prose-lg prose:stone dark:prose-invert lg:max-w-none">
+            {{ partial "posts-blurb.html" . }}
+          </div>
+          <div>
+            {{ range .Pages }}
+            <div class="mb-2 hover:shadow py-2 px-3">
+              <a href="{{ .Permalink }}" class="block">
+                <h1 class="text-xl font-semibold text-stone-900 dark:text-stone-300">
+                  {{ .Title }}
+                </h1>
+                <p class="text-sm text-stone-500 dark:text-stone-400">
+                  <time datetime="{{.Date.Format "2006-01-02"}}">{{.Date.Format "Jan 2, 2006"}}</time>
+                </p>
+                <p class="mt-3 text-base text-stone-500 dark:text-stone-300">
+                  {{ .Params.description }}
+                </p>
+              </a>
+            </div>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</main>
+{{ end }}

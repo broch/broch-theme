@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "prism.css";
+
+
+.form-input {
+    @apply focus:ring-blue-300 focus:border-blue-300 flex-grow block w-full min-w-0 rounded-none rounded-md sm:text-sm border-gray-300;
+}
+
+.btn {
+    @apply border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500;
+}
+
+/* Override the margin for paragraphs in the Zxcvbn info otherwise they are too large due to the prose plugin spacing */
+#zxcvbn p {
+    @apply my-1;
+}
+
+/* Hide the HIBP button in the elm-zxcvbn article (it's covered in part 2) */
+#elm-zxcvbn-app button {
+    display: none;
+}
+
+/* Fix up prism.js a bit so it looks better with Tailwind Typography defaults */
+.prose pre, .prose pre[class*="language-"] {
+    @apply dark:bg-neutral-800 rounded-md border-0 shadow-none;
+}

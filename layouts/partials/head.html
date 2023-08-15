@@ -1,0 +1,16 @@
+<title>{{ .Title }}</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="{{ if .Params.Description }}{{ .Params.Description }}{{ else if .Site.Params.Description }}{{ .Site.Params.Description }}{{ end }}">
+
+{{ $options := dict "inlineImports" true }}
+{{ $styles := resources.Get "css/main.css" }}
+{{ $styles = $styles | resources.PostCSS $options }}
+{{ if hugo.IsProduction }}
+    {{ $styles = $styles | minify | fingerprint | resources.PostProcess }}
+{{ end }}
+<link href="{{ $styles.RelPermalink }}" rel="stylesheet" >
+
+<link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+<script src="/js/prism.js"></script>

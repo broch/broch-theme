@@ -1,0 +1,16 @@
+{{ define "main" }}
+<div class="w-full max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+<main>
+<article class="mx-auto prose prose-stone prose-lg max-w-none lg:prose-xl dark:prose-invert">
+<h1>{{ .Title }}</h1>
+<p class="block flex display-between text-stone-500 dark:text-stone-400 italic">
+{{ .Date.Format "January 2, 2006" }}
+{{ if not (eq .Lastmod .Date) }}
+<span class="ml-3">(Updated, {{ .Lastmod.Format "January 2, 2006" }})</span>
+{{ end }}
+</p>
+{{ .Content }}
+</article>
+</main>
+</div>
+{{ end }}
