@@ -2,14 +2,12 @@
 {{- $blogTitle := site.Params.blogTitle | default "Blog" -}}
 <main>
 <div class="py-16 xl:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
-  <div class="max-w-max lg:max-w-7xl mx-auto">
-    <div class="relative z-10 mb-8 md:mb-2 md:px-6">
+    <div class="z-10 mb-8 md:mb-2 md:px-6">
     <h1 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-stone-900 dark:text-stone-300 sm:text-4xl">{{ $blogTitle }}</h1>
     </div>
-    <div class="relative">
-      <div class="relative md:p-6">
+    <div class="md:p-6">
         <div class="lg:grid lg:grid-cols-2 lg:gap-6">
-          <div class="prose prose-lg prose:stone dark:prose-invert lg:max-w-none">
+          <div class="mb-8 lg:mb-0 prose prose-lg prose:stone dark:prose-invert lg:max-w-none">
             {{ partial "posts-blurb.html" . }}
           </div>
           <div>
@@ -30,9 +28,7 @@
             {{ end }}
           </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
 </main>
 {{ end }}

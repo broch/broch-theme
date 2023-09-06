@@ -5,9 +5,10 @@
   </head>
   <body class="bg-stone-50 text-stone-600 dark:bg-stone-900 dark:text-stone-400">
   {{ partial "navbar.html" . }}
+  <div class="w-full max-w-7xl mx-auto">
   {{ block "main" . }}
   Main block - should be overridden in other templates.
   {{ end }}
-  {{ block "footer" . }}{{ end }}
+  </div>
   </body>
 </html>
