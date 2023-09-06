@@ -1,0 +1,18 @@
+{{ define "main" }}
+<main>
+    <div class="py-16 xl:py-28 px-4 sm:px-6 lg:px-8">
+    <article>
+        <header>
+    <h1 class="my-4 text-3xl leading-8 font-extrabold tracking-tight text-stone-900 dark:text-stone-300 sm:text-4xl">{{ .Title }}</h1>
+        <!-- "{{.Content}}" pulls from the content of the corresponding _index.md -->
+        </header>
+        {{.Content}}
+    </article>
+    <ul>
+        {{ range .Pages }}
+        <li>{{ partial "post-summary.html" . }}</li>
+        {{ end }}
+    </ul>
+    </div>
+</main>
+{{ end }}

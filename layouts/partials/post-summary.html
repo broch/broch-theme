@@ -1,0 +1,13 @@
+<div class="mb-2 py-3">
+  <a href="{{ .Permalink }}" class="block">
+    <h1 class="text-xl font-semibold text-stone-900 dark:text-stone-300">
+      {{ .Title }}
+    </h1>
+    <p class="text-sm text-stone-500 dark:text-stone-400">
+      <time datetime="{{.Date.Format "2006-01-02"}}">{{.Date.Format "Jan 2, 2006"}}</time>
+    </p>
+    <p class="mt-3 text-base text-stone-500 dark:text-stone-300">
+      {{ .Params.description }}
+    </p>
+  </a>
+</div>
