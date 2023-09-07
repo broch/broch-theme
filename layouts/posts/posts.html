@@ -10,13 +10,21 @@
           <div class="mb-8 lg:mb-0 prose prose-lg prose:stone dark:prose-invert lg:max-w-none">
             {{ partial "posts-blurb.html" . }}
           </div>
+          {{ $paginator := .Paginate (where .Pages "Type" "posts") 8 }}
           <ul class="lg:ml-1">
-            {{ range .Pages }}
+            {{ range $paginator.Pages }}
             <li>{{ partial "post-summary.html" . }}</li>
             {{ end }}
+          <div class="py-4 text-lg text-stone-800 dark:text-stone-400 relative flex justify-center">
+              {{ if $paginator.HasPrev }}
+              <a class="px-2 hover:text-stone-600 hover:dark:text-stone-300" href="{{ $paginator.Prev.URL }}">Newer Posts</a>
+              {{ end }}
+              {{ if $paginator.HasNext }}
+              <a class="px-2 hover:text-stone-600 hover:dark:text-stone-300" href="{{ $paginator.Next.URL }}">Older Posts</a>
+              {{ end }}
+            </div>
           </ul>
         </div>
     </div>
-</div>
 </main>
 {{ end }}
