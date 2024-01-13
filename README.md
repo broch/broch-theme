@@ -29,6 +29,7 @@ The title on the `posts` page can be set using the `blogTitle` site parameter:
 
 You'll probably want to override:
 
+- layouts/partials/analytics.html
 - layouts/partials/posts-blurb.html (text that goes in /posts)
 - layouts/partials/logo.html (the logo used in the navbar template)
 - static/images/logo.svg (used for the site icon)
