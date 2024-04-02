@@ -15,6 +15,7 @@
             {{ range $paginator.Pages }}
             <li>{{ partial "post-summary.html" . }}</li>
             {{ end }}
+          </ul>
           <div class="py-4 text-lg text-stone-800 dark:text-stone-400 relative flex justify-center">
               {{ if $paginator.HasPrev }}
               <a class="px-2 hover:text-stone-600 hover:dark:text-stone-300" href="{{ $paginator.Prev.URL }}">Newer Posts</a>
@@ -22,8 +23,7 @@
               {{ if $paginator.HasNext }}
               <a class="px-2 hover:text-stone-600 hover:dark:text-stone-300" href="{{ $paginator.Next.URL }}">Older Posts</a>
               {{ end }}
-            </div>
-          </ul>
+          </div>
         </div>
     </div>
 </main>
